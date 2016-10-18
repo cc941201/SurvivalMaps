@@ -13,7 +13,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (1% documented)</p>
+        <p><a href="index.html"> Docs</a> (70% documented)</p>
         <p class="header-right"><a href="https://github.com/jhu-oose/2016-group-4"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -38,6 +38,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NavigationState.html">NavigationState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RecentSearchViewController.html">RecentSearchViewController</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/Route.html">Route</a>
@@ -100,9 +103,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Default fastest route</p>
 
                         <a href="Classes/Route.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Route</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -120,9 +131,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Safest route (inherits route)</p>
 
                         <a href="Classes/SafestRoute.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SafestRoute</span><span class="p">:</span> <span class="kt"><a href="Classes/Route.html">Route</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -140,9 +159,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Middle route (inherits route)</p>
 
                         <a href="Classes/MiddleRoute.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MiddleRoute</span><span class="p">:</span> <span class="kt"><a href="Classes/Route.html">Route</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -164,9 +191,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Main view controller with a map view</p>
 
                         <a href="Classes/ViewController.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MGLMapViewDelegate</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -188,9 +223,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Searching location by name</p>
 
                         <a href="Classes/SearchState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SearchState</span><span class="p">:</span> <span class="kt"><a href="Protocols/State.html">State</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -208,9 +251,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Searching route between two locations</p>
 
                         <a href="Classes/RoutingState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RoutingState</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -228,9 +279,49 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Navigating on a route</p>
 
                         <a href="Classes/NavigationState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">NavigationState</span><span class="p">:</span> <span class="kt"><a href="Protocols/State.html">State</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8Survival26RecentSearchViewController"></a>
+                    <a name="//apple_ref/swift/Class/RecentSearchViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8Survival26RecentSearchViewController">RecentSearchViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Recent search view controller</p>
+
+                        <a href="Classes/RecentSearchViewController.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RecentSearchViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -264,7 +355,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Group4</a>. All rights reserved. (Last updated: 2016-10-17)</p>
+          <p>&copy; 2016 <a class="link" href="https://github.com/jhu-oose/2016-group-4" target="_blank" rel="external">Group4</a>. All rights reserved. (Last updated: 2016-10-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
