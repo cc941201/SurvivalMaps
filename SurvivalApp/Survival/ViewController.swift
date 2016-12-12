@@ -23,6 +23,26 @@ class ViewController: UIViewController, MKMapViewDelegate, StateDelegate {
                 mapView.add(overlay, level: .aboveLabels)
             }
             
+            let i0 = Double(75250) / 262144 * 360 - 180
+            let i1 = Double(75350) / 262144 * 360 - 180
+            let j0d = atan(sinh(.pi * (1 - 2 * Double(99850) / 262144)))
+            let j0 = j0d * 180 / .pi
+            let j1d = atan(sinh(.pi * (1 - 2 * Double(99950) / 262144)))
+            let j1 = j1d * 180 / .pi
+            for i in 75250..<75350 {
+                let longitude = Double(i) / 262144 * 360 - 180
+                let points = [CLLocationCoordinate2D(latitude: j0, longitude: longitude), CLLocationCoordinate2D(latitude: j1, longitude: longitude)]
+                let line = MKPolyline(coordinates: points, count: 2)
+                mapView.add(line, level: .aboveLabels)
+            }
+            for j in 99850..<99950 {
+                let latitudeDegree = atan(sinh(.pi * (1 - 2 * Double(j) / 262144)))
+                let latitude = latitudeDegree * 180 / .pi
+                let points = [CLLocationCoordinate2D(latitude: latitude, longitude: i0), CLLocationCoordinate2D(latitude: latitude, longitude: i1)]
+                let line = MKPolyline(coordinates: points, count: 2)
+                mapView.add(line, level: .aboveLabels)
+            }
+            
             mapView.mapType = .satellite
             mapView.delegate = self
         }
@@ -103,8 +123,8 @@ class ViewController: UIViewController, MKMapViewDelegate, StateDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let polyline = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: polyline)
-            renderer.strokeColor = state?.strokeColor(for: polyline)?.withAlphaComponent(0.5)
-            renderer.lineWidth = 5
+            renderer.strokeColor = .blue
+            renderer.lineWidth = 1
             return renderer
         }
         if let tile = overlay as? MKTileOverlay {
