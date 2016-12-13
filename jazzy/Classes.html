@@ -13,7 +13,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (70% documented)</p>
+        <p><a href="index.html"> Docs</a> (86% documented)</p>
         <p class="header-right"><a href="https://github.com/jhu-oose/2016-group-4"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -34,19 +34,13 @@
                 <a href="Classes/AppDelegate.html">AppDelegate</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/Location.html">Location</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/MiddleRoute.html">MiddleRoute</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/NavigationState.html">NavigationState</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/RecentSearchViewController.html">RecentSearchViewController</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/Route.html">Route</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/Route/LinkIds.html">– LinkIds</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/RoutingState.html">RoutingState</a>
@@ -55,7 +49,10 @@
                 <a href="Classes/SafestRoute.html">SafestRoute</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SearchState.html">SearchState</a>
+                <a href="Classes/SearchingState.html">SearchingState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SearchingState/SearchType.html">– SearchType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ViewController.html">ViewController</a>
@@ -63,10 +60,18 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Enums.html">Enums</a>
+            <a href="Global Variables.html">Global Variables</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/Location.html">Location</a>
+                <a href="Global Variables.html#/s:v8Survival6serverV10Foundation13URLComponents">server</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
               </li>
             </ul>
           </li>
@@ -75,6 +80,17 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Protocols/State.html">State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/StateDelegate.html">StateDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/AvoidLinkIds.html">AvoidLinkIds</a>
               </li>
             </ul>
           </li>
@@ -93,6 +109,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C8Survival12RoutingState"></a>
+                    <a name="//apple_ref/swift/Class/RoutingState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8Survival12RoutingState">RoutingState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>State of routing</p>
+
+                        <a href="Classes/RoutingState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RoutingState</span><span class="p">:</span> <span class="kt"><a href="Protocols/State.html">State</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8Survival14SearchingState"></a>
+                    <a name="//apple_ref/swift/Class/SearchingState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8Survival14SearchingState">SearchingState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>State of searching</p>
+
+                        <a href="Classes/SearchingState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SearchingState</span><span class="p">:</span> <span class="kt"><a href="Protocols/State.html">State</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C8Survival5Route"></a>
                     <a name="//apple_ref/swift/Class/Route" class="dashAnchor"></a>
                     <a class="token" href="#/s:C8Survival5Route">Route</a>
@@ -103,7 +183,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Default fastest route</p>
+                        <p>Describes a route</p>
 
                         <a href="Classes/Route.html" class="slightly-smaller">See more</a>
                       </div>
@@ -112,34 +192,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Route</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C8Survival11SafestRoute"></a>
-                    <a name="//apple_ref/swift/Class/SafestRoute" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C8Survival11SafestRoute">SafestRoute</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Safest route (inherits route)</p>
-
-                        <a href="Classes/SafestRoute.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SafestRoute</span><span class="p">:</span> <span class="kt"><a href="Classes/Route.html">Route</a></span></code></pre>
 
                         </div>
                       </div>
@@ -159,7 +211,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Middle route (inherits route)</p>
+                        <p>Subclass of route for middle route</p>
 
                         <a href="Classes/MiddleRoute.html" class="slightly-smaller">See more</a>
                       </div>
@@ -168,6 +220,34 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MiddleRoute</span><span class="p">:</span> <span class="kt"><a href="Classes/Route.html">Route</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8Survival11SafestRoute"></a>
+                    <a name="//apple_ref/swift/Class/SafestRoute" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8Survival11SafestRoute">SafestRoute</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Subclass of route for safest route</p>
+
+                        <a href="Classes/SafestRoute.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SafestRoute</span><span class="p">:</span> <span class="kt"><a href="Classes/Route.html">Route</a></span></code></pre>
 
                         </div>
                       </div>
@@ -199,7 +279,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MGLMapViewDelegate</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MKMapViewDelegate</span><span class="p">,</span> <span class="kt"><a href="Protocols/StateDelegate.html">StateDelegate</a></span></code></pre>
 
                         </div>
                       </div>
@@ -213,9 +293,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C8Survival11SearchState"></a>
-                    <a name="//apple_ref/swift/Class/SearchState" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C8Survival11SearchState">SearchState</a>
+                    <a name="/s:C8Survival8Location"></a>
+                    <a name="//apple_ref/swift/Class/Location" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8Survival8Location">Location</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -223,103 +303,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Searching location by name</p>
+                        <p>Name and coordinate of a location</p>
 
-                        <a href="Classes/SearchState.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/Location.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SearchState</span><span class="p">:</span> <span class="kt"><a href="Protocols/State.html">State</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C8Survival12RoutingState"></a>
-                    <a name="//apple_ref/swift/Class/RoutingState" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C8Survival12RoutingState">RoutingState</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Searching route between two locations</p>
-
-                        <a href="Classes/RoutingState.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RoutingState</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C8Survival15NavigationState"></a>
-                    <a name="//apple_ref/swift/Class/NavigationState" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C8Survival15NavigationState">NavigationState</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Navigating on a route</p>
-
-                        <a href="Classes/NavigationState.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">NavigationState</span><span class="p">:</span> <span class="kt"><a href="Protocols/State.html">State</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C8Survival26RecentSearchViewController"></a>
-                    <a name="//apple_ref/swift/Class/RecentSearchViewController" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C8Survival26RecentSearchViewController">RecentSearchViewController</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Recent search view controller</p>
-
-                        <a href="Classes/RecentSearchViewController.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RecentSearchViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Location</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">MKAnnotation</span></code></pre>
 
                         </div>
                       </div>
@@ -355,8 +347,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://github.com/jhu-oose/2016-group-4" target="_blank" rel="external">Group4</a>. All rights reserved. (Last updated: 2016-10-17)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2016 <a class="link" href="https://github.com/jhu-oose/2016-group-4" target="_blank" rel="external">Group4</a>. All rights reserved. (Last updated: 2016-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

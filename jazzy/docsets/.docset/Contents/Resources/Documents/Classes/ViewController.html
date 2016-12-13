@@ -14,7 +14,7 @@
     <a title="ViewController Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (70% documented)</p>
+        <p><a href="../index.html"> Docs</a> (86% documented)</p>
         <p class="header-right"><a href="https://github.com/jhu-oose/2016-group-4"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -35,19 +35,13 @@
                 <a href="../Classes/AppDelegate.html">AppDelegate</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/Location.html">Location</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/MiddleRoute.html">MiddleRoute</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/NavigationState.html">NavigationState</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/RecentSearchViewController.html">RecentSearchViewController</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/Route.html">Route</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/Route/LinkIds.html">– LinkIds</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/RoutingState.html">RoutingState</a>
@@ -56,7 +50,10 @@
                 <a href="../Classes/SafestRoute.html">SafestRoute</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SearchState.html">SearchState</a>
+                <a href="../Classes/SearchingState.html">SearchingState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SearchingState/SearchType.html">– SearchType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ViewController.html">ViewController</a>
@@ -64,10 +61,18 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Enums.html">Enums</a>
+            <a href="../Global Variables.html">Global Variables</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums/Location.html">Location</a>
+                <a href="../Global Variables.html#/s:v8Survival6serverV10Foundation13URLComponents">server</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
               </li>
             </ul>
           </li>
@@ -76,6 +81,17 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/State.html">State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StateDelegate.html">StateDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AvoidLinkIds.html">AvoidLinkIds</a>
               </li>
             </ul>
           </li>
@@ -87,7 +103,7 @@
             <h1>ViewController</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MGLMapViewDelegate</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MKMapViewDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/StateDelegate.html">StateDelegate</a></span></code></pre>
 
                 </div>
               </div>
@@ -96,13 +112,20 @@
           </section>
           <section class="section task-group-section">
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UI"></a>
+                <a name="//apple_ref/swift/Section/UI" class="dashAnchor"></a>
+                <a href="#/UI">
+                  <h3 class="section-name">UI</h3>
+                </a>
+              </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC8Survival14ViewController7mapViewGSQCSo9MQMapView_"></a>
+                    <a name="/s:vC8Survival14ViewController7mapViewGSQCSo9MKMapView_"></a>
                     <a name="//apple_ref/swift/Property/mapView" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC8Survival14ViewController7mapViewGSQCSo9MQMapView_">mapView</a>
+                    <a class="token" href="#/s:vC8Survival14ViewController7mapViewGSQCSo9MKMapView_">mapView</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -110,14 +133,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Main map view</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MGLMapViewDelegate</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">var</span> <span class="nv">mapView</span><span class="p">:</span> <span class="kt">MKMapView</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -137,14 +160,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Text field for origination</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MGLMapViewDelegate</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">fromTextField</span><span class="p">:</span> <span class="kt">UITextField</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -164,14 +187,52 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Text field for destination</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MGLMapViewDelegate</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">toTextField</span><span class="p">:</span> <span class="kt">UITextField</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/State"></a>
+                <a name="//apple_ref/swift/Section/State" class="dashAnchor"></a>
+                <a href="#/State">
+                  <h3 class="section-name">State</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8Survival14ViewControllerP33_A447599944C2FB5D627F13B57EB42CED5stateGSqPS_5State__"></a>
+                    <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8Survival14ViewControllerP33_A447599944C2FB5D627F13B57EB42CED5stateGSqPS_5State__">state</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Current state of operation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Protocols/State.html">State</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -181,9 +242,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC8Survival14ViewController5stateGSqPS_5State__"></a>
-                    <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC8Survival14ViewController5stateGSqPS_5State__">state</a>
+                    <a name="/s:vC8Survival14ViewControllerP33_A447599944C2FB5D627F13B57EB42CED4fromGSqCS_8Location_"></a>
+                    <a name="//apple_ref/swift/Property/from" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8Survival14ViewControllerP33_A447599944C2FB5D627F13B57EB42CED4fromGSqCS_8Location_">from</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -191,20 +252,340 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Origination</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">MGLMapViewDelegate</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">from</span><span class="p">:</span> <span class="kt"><a href="../Classes/Location.html">Location</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8Survival14ViewControllerP33_A447599944C2FB5D627F13B57EB42CED2toGSqCS_8Location_"></a>
+                    <a name="//apple_ref/swift/Property/to" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8Survival14ViewControllerP33_A447599944C2FB5D627F13B57EB42CED2toGSqCS_8Location_">to</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Destination</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">to</span><span class="p">:</span> <span class="kt"><a href="../Classes/Location.html">Location</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14ViewControllerP33_A447599944C2FB5D627F13B57EB42CED6searchFT3forSS4typeOCS_14SearchingState10SearchType_T_"></a>
+                    <a name="//apple_ref/swift/Method/search(for:type:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14ViewControllerP33_A447599944C2FB5D627F13B57EB42CED6searchFT3forSS4typeOCS_14SearchingState10SearchType_T_">search(for:type:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start a name search</p>
+
+<ul>
+<li>Parameters:
+
+<ul>
+<li>name: location name</li>
+<li>type: origination or destination</li>
+</ul></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">search</span><span class="p">(</span><span class="k">for</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Classes/SearchingState.html">SearchingState</a></span><span class="o">.</span><span class="kt">SearchType</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>location name</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>origination or destination</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14ViewControllerP33_A447599944C2FB5D627F13B57EB42CED5routeFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/route()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14ViewControllerP33_A447599944C2FB5D627F13B57EB42CED5routeFT_T_">route()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start routing</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">route</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/StateDelegate"></a>
+                <a name="//apple_ref/swift/Section/StateDelegate" class="dashAnchor"></a>
+                <a href="#/StateDelegate">
+                  <h3 class="section-name">StateDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14ViewController22didGenerateAnnotationsFGSaPSo12MKAnnotation__T_"></a>
+                    <a name="//apple_ref/swift/Method/didGenerateAnnotations(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14ViewController22didGenerateAnnotationsFGSaPSo12MKAnnotation__T_">didGenerateAnnotations(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Display annotations generated by current state</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter annotations: array of annotations
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">didGenerateAnnotations</span><span class="p">(</span><span class="n">_</span> <span class="nv">annotations</span><span class="p">:</span> <span class="p">[</span><span class="kt">MKAnnotation</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>annotations</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>array of annotations</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14ViewController19didGenerateOverlaysFGSaPSo9MKOverlay__T_"></a>
+                    <a name="//apple_ref/swift/Method/didGenerateOverlays(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14ViewController19didGenerateOverlaysFGSaPSo9MKOverlay__T_">didGenerateOverlays(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Display overlays generated by current state</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter overlays: array of overlays
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">didGenerateOverlays</span><span class="p">(</span><span class="n">_</span> <span class="nv">overlays</span><span class="p">:</span> <span class="p">[</span><span class="kt">MKOverlay</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>overlays</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>array of overlays</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14ViewController11reportErrorFT5titleSS7messageGSqSS__T_"></a>
+                    <a name="//apple_ref/swift/Method/reportError(title:message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14ViewController11reportErrorFT5titleSS7messageGSqSS__T_">reportError(title:message:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Display an error from current state</p>
+
+<ul>
+<li>Parameters:
+
+<ul>
+<li>title: error title</li>
+<li>message: error message</li>
+</ul></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">reportError</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>title</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>error title</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>error message</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Text%20field%20target-actions"></a>
+                <a name="//apple_ref/swift/Section/Text field target-actions" class="dashAnchor"></a>
+                <a href="#/Text%20field%20target-actions">
+                  <h3 class="section-name">Text field target-actions</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -218,7 +599,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Finished editing <q>from</q> text field</p>
+                        <p>Origination completed</p>
 
                       </div>
                       <div class="declaration">
@@ -226,6 +607,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">fromTextFieldDone</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14ViewController16fromTextFieldEndFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/fromTextFieldEnd()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14ViewController16fromTextFieldEndFT_T_">fromTextFieldEnd()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Origination text field loses focus</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">fromTextFieldEnd</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -245,7 +653,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Finished editing <q>to</q> text field</p>
+                        <p>Destination completed</p>
 
                       </div>
                       <div class="declaration">
@@ -259,13 +667,357 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14ViewController14toTextFieldEndFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/toTextFieldEnd()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14ViewController14toTextFieldEndFT_T_">toTextFieldEnd()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Destination text field loses focus</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">toTextFieldEnd</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/MKMapViewDelegate"></a>
+                <a name="//apple_ref/swift/Section/MKMapViewDelegate" class="dashAnchor"></a>
+                <a href="#/MKMapViewDelegate">
+                  <h3 class="section-name">MKMapViewDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14ViewController7mapViewFTCSo9MKMapView11rendererForPSo9MKOverlay__CSo17MKOverlayRenderer"></a>
+                    <a name="//apple_ref/swift/Method/mapView(_:rendererFor:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14ViewController7mapViewFTCSo9MKMapView11rendererForPSo9MKOverlay__CSo17MKOverlayRenderer">mapView(_:rendererFor:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Renderer for overlay</p>
+
+<p><li>Parameters:</p>
+
+<p><ul>
+<li>mapView: source map view</li>
+<li>overlay: overlay to display</li>
+</ul></li>
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    renderer</p>
+
+<p></div></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">mapView</span><span class="p">(</span><span class="n">_</span> <span class="nv">mapView</span><span class="p">:</span> <span class="kt">MKMapView</span><span class="p">,</span> <span class="n">rendererFor</span> <span class="nv">overlay</span><span class="p">:</span> <span class="kt">MKOverlay</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">MKOverlayRenderer</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>mapView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>source map view</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>overlay</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>overlay to display</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>renderer</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14ViewController7mapViewFTCSo9MKMapView7viewForPSo12MKAnnotation__GSqCSo16MKAnnotationView_"></a>
+                    <a name="//apple_ref/swift/Method/mapView(_:viewFor:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14ViewController7mapViewFTCSo9MKMapView7viewForPSo12MKAnnotation__GSqCSo16MKAnnotationView_">mapView(_:viewFor:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>View for annotation</p>
+
+<p><li>Parameters:</p>
+
+<p><ul>
+<li>mapView: source map view</li>
+<li>annotation: annotation to display</li>
+</ul></li>
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    annotation view</p>
+
+<p></div></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">mapView</span><span class="p">(</span><span class="n">_</span> <span class="nv">mapView</span><span class="p">:</span> <span class="kt">MKMapView</span><span class="p">,</span> <span class="n">viewFor</span> <span class="nv">annotation</span><span class="p">:</span> <span class="kt">MKAnnotation</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">MKAnnotationView</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>mapView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>source map view</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>annotation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>annotation to display</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>annotation view</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14ViewController7mapViewFTCSo9MKMapView14annotationViewCSo16MKAnnotationView29calloutAccessoryControlTappedCSo9UIControl_T_"></a>
+                    <a name="//apple_ref/swift/Method/mapView(_:annotationView:calloutAccessoryControlTapped:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14ViewController7mapViewFTCSo9MKMapView14annotationViewCSo16MKAnnotationView29calloutAccessoryControlTappedCSo9UIControl_T_">mapView(_:annotationView:calloutAccessoryControlTapped:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Select location</p>
+
+<ul>
+<li>Parameters:
+
+<ul>
+<li>mapView: source map view</li>
+<li>view: annotation tapped</li>
+<li>control: control tapped</li>
+</ul></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">mapView</span><span class="p">(</span><span class="n">_</span> <span class="nv">mapView</span><span class="p">:</span> <span class="kt">MKMapView</span><span class="p">,</span> <span class="n">annotationView</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">MKAnnotationView</span><span class="p">,</span> <span class="n">calloutAccessoryControlTapped</span> <span class="nv">control</span><span class="p">:</span> <span class="kt">UIControl</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>mapView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>source map view</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>annotation tapped</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>control</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>control tapped</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14ViewController7mapViewFTCSo9MKMapView23regionDidChangeAnimatedSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/mapView(_:regionDidChangeAnimated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14ViewController7mapViewFTCSo9MKMapView23regionDidChangeAnimatedSb_T_">mapView(_:regionDidChangeAnimated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Maintain minimal zoom level</p>
+
+<ul>
+<li>Parameters:
+
+<ul>
+<li>mapView: source map view</li>
+<li>animated: if change is animated</li>
+</ul></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">mapView</span><span class="p">(</span><span class="n">_</span> <span class="nv">mapView</span><span class="p">:</span> <span class="kt">MKMapView</span><span class="p">,</span> <span class="n">regionDidChangeAnimated</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>mapView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>source map view</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>if change is animated</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://github.com/jhu-oose/2016-group-4" target="_blank" rel="external">Group4</a>. All rights reserved. (Last updated: 2016-10-17)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2016 <a class="link" href="https://github.com/jhu-oose/2016-group-4" target="_blank" rel="external">Group4</a>. All rights reserved. (Last updated: 2016-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
