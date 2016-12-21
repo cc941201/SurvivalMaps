@@ -148,6 +148,4 @@ public class SurvivalService {
 			return null;
 		}	
 	}
-
-
 }

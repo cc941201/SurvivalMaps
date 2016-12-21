@@ -87,7 +87,7 @@ public class SurvivalController {
 		}, new JsonTransformer());
 		
 		/**
-		 * 
+		 * Get the color rating for a specified coordinate.
 		 */
 		get(API_CONTEXT + "/safety/rating", "application/json", (request, response) -> {
 			double lat = Double.parseDouble(request.queryParams("lat"));
@@ -97,7 +97,4 @@ public class SurvivalController {
 		}, new JsonTransformer());
 
 	}
-
-
-
 }
