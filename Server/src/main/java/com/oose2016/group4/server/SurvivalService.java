@@ -13,7 +13,7 @@ import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
 /**
- * Query the database
+ * Class which runs the survival service.
  */
 public class SurvivalService {
 	private Sql2o db;
