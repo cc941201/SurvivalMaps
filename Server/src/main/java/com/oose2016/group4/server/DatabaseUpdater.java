@@ -31,6 +31,10 @@ public class DatabaseUpdater {
 
     private Connection mConnection;
 
+    /**
+     * DatabaseUpdater constructor
+     * @param conn the database connection
+     */
     public DatabaseUpdater(Connection conn) {
         mConnection = conn;
     }
@@ -47,11 +51,9 @@ public class DatabaseUpdater {
 
     /**
      * Main task of the DatabaseUpdater class
-     * TODO consider making bot updateTraffics and updateCrimes abstract so that we have an Template Method pattern;
-     *
      * @throws IOException
      */
-    public void update(String table) throws IOException {
+    public void update() throws IOException {
         updateTraffics();
         updateHistoricalCrimes();
         updateCrimes();
@@ -385,6 +387,10 @@ public class DatabaseUpdater {
         }
     }
 
+    /**
+     * 
+     * @throws IOException
+     */
     private void updateHistoricalCrimes() throws IOException {
 
         String sqlQueryLogHistorical = "SELECT updatecount FROM updatelog WHERE sourcename='historical';";

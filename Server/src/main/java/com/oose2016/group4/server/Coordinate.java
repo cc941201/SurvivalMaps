@@ -6,14 +6,28 @@ package com.oose2016.group4.server;
 public class Coordinate {
 	private double latitude, longitude;
 
+	/**
+	 * Gets the latitude
+	 * @return the latitude
+	 */
 	public double getLatitude() {
 		return latitude;
 	}
 
+	/**
+	 * Gets the longitude 
+	 * @return the longitude 
+	 */
 	public double getLongitude() {
 		return longitude;
 	}
 
+	/**
+	 * Coordinate constructor
+	 * @param latitude the latitude
+	 * @param longitude the longitude 
+	 * @throws Exception if the coordinate is invalid
+	 */
 	public Coordinate(double latitude, double longitude) throws Exception {
 		if (latitude < -90 || latitude > 90 || longitude < -180 || longitude > 180) {
 			throw new Exception("Not valid coordinate");
