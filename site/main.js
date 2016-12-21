@@ -73,6 +73,41 @@ function toCoords(shape) {
 
 var fastestRoute, middleRoute, safestRoute;
 
+function route(from, to, push) {
+	if (fastestRoute) { fastestRoute.remove(); }
+	if (middleRoute) { middleRoute.remove(); }
+	if (safestRoute) { safestRoute.remove(); }
+	mqRoute(from, to, null, null, function(shape) {
+		if (!shape || shape.length < 2) {
+			alert('MapQuest failed!');
+			return;
+		}
+		var coords = toCoords(shape);
+		var first = coords[0];
+		var last = coords[coords.length - 1];
+		if (push) {
+			history.pushState(null, null, '?' + $.param({
+				from: from,
+				to: to,
+				fromLat: first[0],
+				toLat: last[0],
+				fromLng: first[1],
+				toLng: last[1]
+			}));
+		}
+		fastestRoute = L.polyline(coords, {color: 'red', weight: 5, opacity: 0.5}).addTo(map);
+		map.fitBounds(fastestRoute.getBounds());
+		avoid(first, last, function(linkIds) {
+			mqRoute(from, to, null, linkIds.red, function(shape) {
+				middleRoute = L.polyline(toCoords(shape), {color: 'yellow', weight: 5, opacity: 0.5}).addTo(map);
+			});
+			mqRoute(from, to, linkIds.red, linkIds.yellow, function(shape) {
+				safestRoute = L.polyline(toCoords(shape), {color: 'green', weight: 5, opacity: 0.5}).addTo(map);
+			});
+		});
+	});
+}
+
 $('form').submit(function() {
 	var from = $('#from').val();
 	var to = $('#to').val();
@@ -80,27 +115,14 @@ $('form').submit(function() {
 		alert('Please enter origination and destination.');
 		return false;
 	}
-	mqRoute(from, to, null, null, function(shape) {
-		if (!shape || shape.length < 2) {
-			alert('MapQuest failed!');
-			return;
-		}
-		if (fastestRoute) { fastestRoute.remove(); }
-		if (middleRoute) { middleRoute.remove(); }
-		if (safestRoute) { safestRoute.remove(); }
-		var coords = toCoords(shape);
-		fastestRoute = L.polyline(coords, {color: 'red', weight: 5, opacity: 0.5}).addTo(map);
-		map.fitBounds(fastestRoute.getBounds());
-		var first = coords[0];
-		var last = coords[coords.length - 1];
-		avoid(first, last, function(linkIds) {
-			mqRoute(from, to, null, linkIds.red, function(shape) {
-				middleRoute = L.polyline(toCoords(shape), {color: 'yellow', weight: 5, opacity: 0.5}).addTo(map);
-			});
-			mqRoute(from, to, linkIds.red, linkIds.yellow, function(shape) {
-				fastestRoute = L.polyline(toCoords(shape), {color: 'green', weight: 5, opacity: 0.5}).addTo(map);
-			});
-		});
-	});
+	route(from, to, true);
 	return false;
 });
+
+var search = location.search.substring(1);
+query = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+if (query.from && query.to && query.fromLat && query.toLat && query.fromLng && query.toLng) {
+	$('#from').val(query.from);
+	$('#to').val(query.to);
+	route(query.fromLat + ',' + query.fromLng, query.toLat + ',' + query.toLng, false);
+}
