@@ -27,6 +27,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         if CLLocationManager.authorizationStatus() == .notDetermined {
             locationManager.requestAlwaysAuthorization()
         }
+        //Condition when authorization is denied 
+        else if CLLocationManager.authorizationStatus() == .denied {
+            showAlert(message: "Location services have been denied. Please enable location services for Survival in Settings.")
+        }
         //Condition when authorization is successful
         else if CLLocationManager.authorizationStatus() == .authorizedAlways {
             locationManager.startUpdatingLocation()
@@ -87,6 +91,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        //showAlert(message: "enter \(region.identifier)")
+        
+        let trigger = UNLocationNotificationTrigger(region:region, repeats:false)
+        scheduleNotification(trigger: trigger)
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
