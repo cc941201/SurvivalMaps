@@ -296,7 +296,7 @@ public class ServerTest {
 	} */
 	
 	@Test
-	public void testSafetyRating() {
+	public void testSafetyRating()  {
 		SurvivalService s = new SurvivalService(dSource);
 		try (Connection conn = s.getDb().open()){
 			double lat = 39.5;
@@ -307,8 +307,12 @@ public class ServerTest {
 		            + "(x INTEGER NOT NULL, y INTEGER NOT NULL, linkId INTEGER NOT NULL, alarm REAL NOT NULL, AADT INTEGER NOT NULL, "
 		            + " PRIMARY KEY (x, y));";
 			conn.createQuery(sqltable).executeUpdate();
-			
-			s.getSafetyRating(lat, lng, table);
+			try {
+				s.getSafetyRating(new Coordinate(lat, lng), table);
+				
+			} catch (Exception e) {
+				logger.error("Failed to get safety rating", e);
+			}
 		}
 	}
 	
