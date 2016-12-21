@@ -2,58 +2,93 @@
   "warnings": [
     {
       "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/AppDelegate.swift",
-      "line": 20,
+      "line": 19,
       "symbol": "AppDelegate",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/AppDelegate.swift",
-      "line": 22,
+      "line": 21,
       "symbol": "AppDelegate.window",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/AppDelegate.swift",
-      "line": 25,
+      "line": 45,
       "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/AppDelegate.swift",
-      "line": 30,
+      "line": 50,
       "symbol": "AppDelegate.applicationWillResignActive(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/AppDelegate.swift",
-      "line": 35,
+      "line": 55,
       "symbol": "AppDelegate.applicationDidEnterBackground(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/AppDelegate.swift",
-      "line": 40,
+      "line": 60,
       "symbol": "AppDelegate.applicationWillEnterForeground(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/AppDelegate.swift",
-      "line": 44,
+      "line": 64,
       "symbol": "AppDelegate.applicationDidBecomeActive(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/AppDelegate.swift",
-      "line": 48,
+      "line": 68,
       "symbol": "AppDelegate.applicationWillTerminate(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/Route.swift",
+      "line": 18,
+      "symbol": "Route.result",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/Route.swift",
+      "line": 19,
+      "symbol": "Route.shape",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/RoutingViewController.swift",
+      "line": 46,
+      "symbol": "RoutingViewController.RouteType.fastest",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/RoutingViewController.swift",
+      "line": 46,
+      "symbol": "RoutingViewController.RouteType.middle",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/RoutingViewController.swift",
+      "line": 46,
+      "symbol": "RoutingViewController.RouteType.safest",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
@@ -68,20 +103,6 @@
       "line": 24,
       "symbol": "SearchingState.SearchType.to",
       "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/State.swift",
-      "line": 44,
-      "symbol": "State.annotations",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cc941201/Documents/Developer/2016-group-4/SurvivalApp/Survival/State.swift",
-      "line": 47,
-      "symbol": "State.overlays",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     }
   ],

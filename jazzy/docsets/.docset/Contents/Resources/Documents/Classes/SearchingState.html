@@ -14,7 +14,7 @@
     <a title="SearchingState Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (86% documented)</p>
+        <p><a href="../index.html"> Docs</a> (93% documented)</p>
         <p class="header-right"><a href="https://github.com/jhu-oose/2016-group-4"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -35,10 +35,22 @@
                 <a href="../Classes/AppDelegate.html">AppDelegate</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/BottomSegue.html">BottomSegue</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/Location.html">Location</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/MiddleRoute.html">MiddleRoute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NavigatingBottomViewController.html">NavigatingBottomViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NavigatingState.html">NavigatingState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NavigatingTopViewController.html">NavigatingTopViewController</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Route.html">Route</a>
@@ -47,13 +59,28 @@
                 <a href="../Classes/RoutingState.html">RoutingState</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/RoutingViewController.html">RoutingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoutingViewController/RouteType.html">– RouteType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SafestRoute.html">SafestRoute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SearchResultTableViewCell.html">SearchResultTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SearchTableViewController.html">SearchTableViewController</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SearchingState.html">SearchingState</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SearchingState/SearchType.html">– SearchType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SimulatedUserLocation.html">SimulatedUserLocation</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ViewController.html">ViewController</a>
@@ -74,11 +101,23 @@
               <li class="nav-group-task">
                 <a href="../Extensions/CLLocationCoordinate2D.html">CLLocationCoordinate2D</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification.html">Notification</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/NavigatingBottomViewControllerDelegate.html">NavigatingBottomViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RoutingViewControllerDelegate.html">RoutingViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SearchTableViewControllerDelegate.html">SearchTableViewControllerDelegate</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Protocols/State.html">State</a>
               </li>
@@ -93,6 +132,9 @@
               <li class="nav-group-task">
                 <a href="../Structs/AvoidLinkIds.html">AvoidLinkIds</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Maneuver.html">Maneuver</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -103,7 +145,7 @@
             <h1>SearchingState</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SearchingState</span><span class="p">:</span> <span class="kt"><a href="../Protocols/State.html">State</a></span></code></pre>
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SearchingState</span><span class="p">:</span> <span class="kt"><a href="../Protocols/State.html">State</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/SearchTableViewControllerDelegate.html">SearchTableViewControllerDelegate</a></span></code></pre>
 
                 </div>
               </div>
@@ -230,9 +272,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC8Survival14SearchingStateP33_1C1BE82DA6DCF45EB45EA5BF1479E54C9locationsGSaCS_8Location_"></a>
+                    <a name="/s:vC8Survival14SearchingState9locationsGSaCS_8Location_"></a>
                     <a name="//apple_ref/swift/Property/locations" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC8Survival14SearchingStateP33_1C1BE82DA6DCF45EB45EA5BF1479E54C9locationsGSaCS_8Location_">locations</a>
+                    <a class="token" href="#/s:vC8Survival14SearchingState9locationsGSaCS_8Location_">locations</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -247,7 +289,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">locations</span> <span class="o">=</span> <span class="p">[</span><span class="kt"><a href="../Classes/Location.html">Location</a></span><span class="p">]()</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">locations</span> <span class="o">=</span> <span class="p">[</span><span class="kt"><a href="../Classes/Location.html">Location</a></span><span class="p">]()</span></code></pre>
 
                         </div>
                       </div>
@@ -448,12 +490,374 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14SearchingStateP33_1C1BE82DA6DCF45EB45EA5BF1479E54C6handleFT6resultGSaCS_8Location__T_"></a>
+                    <a name="//apple_ref/swift/Method/handle(result:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14SearchingStateP33_1C1BE82DA6DCF45EB45EA5BF1479E54C6handleFT6resultGSaCS_8Location__T_">handle(result:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Handle search result</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter result: search result
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">handle</span><span class="p">(</span><span class="nv">result</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Location.html">Location</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>result</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>search result</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8Survival14SearchingStateP33_1C1BE82DA6DCF45EB45EA5BF1479E54C25searchTableViewControllerXwGSqCS_25SearchTableViewController_"></a>
+                    <a name="//apple_ref/swift/Property/searchTableViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8Survival14SearchingStateP33_1C1BE82DA6DCF45EB45EA5BF1479E54C25searchTableViewControllerXwGSqCS_25SearchTableViewController_">searchTableViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Bottom view controller</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">searchTableViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/SearchTableViewController.html">SearchTableViewController</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8Survival14SearchingState20bottomViewControllerGSqCSo16UIViewController_"></a>
+                    <a name="//apple_ref/swift/Property/bottomViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8Survival14SearchingState20bottomViewControllerGSqCSo16UIViewController_">bottomViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Bottom view controller for State protocol</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">bottomViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8Survival14SearchingState11bottomSegueGSqSS_"></a>
+                    <a name="//apple_ref/swift/Property/bottomSegue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8Survival14SearchingState11bottomSegueGSqSS_">bottomSegue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Bottom view controller segue name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">bottomSegue</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14SearchingState7prepareFT3forCSo17UIStoryboardSegue12bottomHeightCSo18NSLayoutConstraint_T_"></a>
+                    <a name="//apple_ref/swift/Method/prepare(for:bottomHeight:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14SearchingState7prepareFT3forCSo17UIStoryboardSegue12bottomHeightCSo18NSLayoutConstraint_T_">prepare(for:bottomHeight:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Handle bottom view controller segue</p>
+
+<ul>
+<li>Parameters:
+
+<ul>
+<li>segue: Storyboard segue</li>
+<li>bottomHeight: bottom container height constraint</li>
+</ul></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="k">for</span> <span class="nv">segue</span><span class="p">:</span> <span class="kt">UIStoryboardSegue</span><span class="p">,</span> <span class="nv">bottomHeight</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>segue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Storyboard segue</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bottomHeight</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>bottom container height constraint</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14SearchingState9didTapRowFT2atSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/didTapRow(at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14SearchingState9didTapRowFT2atSi_T_">didTapRow(at:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>User tapped table view row</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter index: index of row
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">didTapRow</span><span class="p">(</span><span class="n">at</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>index</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>index of row</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14SearchingState15didTapSetButtonFT2atSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/didTapSetButton(at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14SearchingState15didTapSetButtonFT2atSi_T_">didTapSetButton(at:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>User tapped set button on table view row</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter index: index of row
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">didTapSetButton</span><span class="p">(</span><span class="n">at</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>index</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>index of row</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Survival14SearchingState9didSelectFT10annotationPSo12MKAnnotation__T_"></a>
+                    <a name="//apple_ref/swift/Method/didSelect(annotation:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Survival14SearchingState9didSelectFT10annotationPSo12MKAnnotation__T_">didSelect(annotation:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>User selected annotation</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter annotation: selected annotation
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">didSelect</span><span class="p">(</span><span class="nv">annotation</span><span class="p">:</span> <span class="kt">MKAnnotation</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>annotation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>selected annotation</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://github.com/jhu-oose/2016-group-4" target="_blank" rel="external">Group4</a>. All rights reserved. (Last updated: 2016-12-13)</p>
+          <p>&copy; 2016 <a class="link" href="https://github.com/jhu-oose/2016-group-4" target="_blank" rel="external">Group4</a>. All rights reserved. (Last updated: 2016-12-21)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
