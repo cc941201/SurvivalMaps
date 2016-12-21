@@ -92,7 +92,8 @@ public class SurvivalController {
 		get(API_CONTEXT + "/safety/rating", "application/json", (request, response) -> {
 			double lat = Double.parseDouble(request.queryParams("lat"));
 			double lng = Double.parseDouble(request.queryParams("lng"));
-			return survivalService.getSafetyRating(lat, lng, "grids");
+			Coordinate c = new Coordinate(lat, lng);
+			return survivalService.getSafetyRating(c, "grids");
 		}, new JsonTransformer());
 
 	}

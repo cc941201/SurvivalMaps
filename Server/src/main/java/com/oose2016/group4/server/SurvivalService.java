@@ -123,9 +123,9 @@ public class SurvivalService {
 	}
 
 	
-	public String getSafetyRating(double lat, double lng, String table) {
+	public String getSafetyRating(Coordinate c, String table) {
 		try (Connection conn = db.open()) {
-			Grid grid = new Grid(lat, lng);
+			Grid grid = new Grid(c.getLatitude(), c.getLongitude());
 			int x = grid.getX();
 			int y = grid.getY();
 			
