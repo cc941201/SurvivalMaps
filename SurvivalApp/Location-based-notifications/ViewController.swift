@@ -36,11 +36,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
     }
+    //Refer to super for function
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     func setUpNotification() -> Void {
         //Shows the user an alert the first time they use the Survival app
         let options: UNAuthorizationOptions = [.alert, .sound]
-
+        //Make authorization request using shared notification center
+        UNUserNotificationCenter.current().requestAuthorization(options: options) {
+            (granted, error) in
+            self.isGrantedNotificationAccess = granted
+        }
     }
     
     func scheduleNotification(trigger: UNNotificationTrigger) -> Void {
@@ -107,10 +115,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         alert.addAction(bttn)
         present(alert, animated: true, completion: nil)
         
-        
-        
     }
 
+    
 
 }
 
