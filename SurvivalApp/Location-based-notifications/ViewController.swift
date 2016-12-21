@@ -84,8 +84,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
             
-            //Region to be defined here
-            
             // Region data
             let title = "Location"
             let coordinate = CLLocationCoordinate2DMake(90.0000, 0.0000)           
