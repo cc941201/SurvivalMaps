@@ -23,11 +23,8 @@ myControl.onAdd = function(map) {
 }
 myControl.addTo(map);
 
-$('input').mouseover(function() {
-	map.dragging.disable();
-});
-$('input').mouseout(function() {
-	map.dragging.enable();
+$('input').each(function() {
+	L.DomEvent.disableClickPropagation(this);
 });
 
 var mqKey = 'afbtgu28aAJW4kgGbc8yarMCZ3LdWWbh'

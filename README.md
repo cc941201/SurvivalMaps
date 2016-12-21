@@ -2,6 +2,8 @@
 
 Code documentations generated with jazzy and Javadoc from the source code.
 
+[Web App](https://jhu-oose.github.io/2016-group-4/site/)
+
 ## jazzy
 [App](https://jhu-oose.github.io/2016-group-4/jazzy/)
 
