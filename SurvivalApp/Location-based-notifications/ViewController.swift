@@ -93,6 +93,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         showAlert(message: "didExitRegion \(region.identifier)")
     }
     
+    func showAlert(message: String) -> Void {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        let bttn = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(bttn)
+        present(alert, animated: true, completion: nil)
+        
+        
+        
+    }
+
 
 }
 
