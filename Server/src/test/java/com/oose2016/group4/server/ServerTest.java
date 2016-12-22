@@ -264,16 +264,26 @@ public class ServerTest {
 	public void testSafetyRating()  {
 		SurvivalService s = new SurvivalService(dSource);
 		try (Connection conn = s.getDb().open()){
-			double lat = 39.5;
-			double lng = 76.5;
 			String table = "TestSafetyRating";
 			
 			String sqltable = "CREATE TABLE IF NOT EXISTS TestSafetyRating "
 		            + "(x INTEGER NOT NULL, y INTEGER NOT NULL, linkId INTEGER NOT NULL, alarm REAL NOT NULL, AADT INTEGER NOT NULL, "
 		            + " PRIMARY KEY (x, y));";
 			conn.createQuery(sqltable).executeUpdate();
+			
+			List<Grid> grids = new LinkedList<>();
+			
+			// TODO create a bunch of grids in this grid list to add to the test table, figure out what needs to be asserted
+			
+			String sqlInsertCoordinate = "INSERT INTO TestSafetyRating "
+                    + " VALUES(:xParam, :yParam, :linkidParam, :alarmParam, :aadtParam); ";
+			
+			grids.forEach(grid ->
+	            conn.createQuery(sqlInsertCoordinate).bind(grid).executeUpdate()
+			);
+			
 			try {
-				s.getSafetyRating(new Coordinate(lat, lng), table);
+				s.getSafetyRating(new Coordinate(39.5, 76.5), table);
 				
 			} catch (Exception e) {
 				logger.error("Failed to get safety rating", e);
@@ -287,7 +297,7 @@ public class ServerTest {
 	
 	/**
 	 * Clears the database of all test tables.
-	 * @return
+	 * @return the clean database source
 	 */
 	private SQLiteDataSource clearDB() {
 		SQLiteDataSource dataSource = new SQLiteDataSource();
