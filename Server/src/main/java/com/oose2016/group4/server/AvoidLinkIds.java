@@ -27,6 +27,7 @@ public class AvoidLinkIds {
 		this.red = red;
 		this.yellow = yellow;
 	}
+
 	
 	public int[] getRed() {
 		return this.red;

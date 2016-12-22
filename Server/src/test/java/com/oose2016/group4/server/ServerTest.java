@@ -1,8 +1,5 @@
 package com.oose2016.group4.server;
 
-
-import static org.mockito.Mockito.*;
-
 import org.sql2o.Connection;
 import org.sql2o.Query;
 import org.sql2o.Sql2o;
@@ -11,8 +8,6 @@ import org.sqlite.SQLiteDataSource;
 
 import spark.Spark;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -23,10 +18,7 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.*;
 
-import com.google.gson.Gson;
-
 import org.junit.runner.RunWith;
-import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -42,7 +34,11 @@ public class ServerTest {
 	// Setup - based on To-Do server unit tests.
 	// ------------------------------------------------------------------------//
 
-	
+	/**
+	 * Clears the database of any test tables we may have created and initiates
+	 * testing.
+	 * @throws Exception
+	 */
 	@Before
 	public void setup() throws Exception {
 		// Clear the database and then start the server
@@ -53,7 +49,9 @@ public class ServerTest {
 		Spark.awaitInitialization();
 	}
 	
-	
+	/**
+	 * Clears the database of testing tables and stops the tests
+	 */
 	@After
 	public void tearDown() {
 		// Stop the server
@@ -65,6 +63,10 @@ public class ServerTest {
 	// Tests
 	// ------------------------------------------------------------------------//
 
+	/**
+	 * Tests the getters in the Coordinate class.
+	 * @throws Exception when the coordinates are invalid
+	 */
 	@Test
 	public void testGetLatLong() throws Exception {
 		Coordinate c = new Coordinate(0.5, 0.7);
@@ -72,6 +74,10 @@ public class ServerTest {
 		assertEquals(0.7, c.getLongitude(), 0);
 	}
 	
+	/**
+	 * Tests the sortAndExpand method in AvoidLinkIds.
+	 * @throws Exception
+	 */
 	@Test
 	public void testSortAndExpand() throws Exception {
 		//c1 < c2
@@ -111,6 +117,10 @@ public class ServerTest {
 		assertEquals(1.11608, c8.getLongitude(), 0.01);
 	}
 
+	/**
+	 * Tests the getAvoidLnkIds method in AvoidLinkIds.
+	 * @throws Exception
+	 */
 	@Test
 	public void testGetAvoidLinkIds() throws Exception {
 		SurvivalService s = new SurvivalService(dSource);
@@ -174,9 +184,15 @@ public class ServerTest {
 			assertEquals(s.getAvoidLinkIds(from1, to1, TESTCRIMES), null);
 		} catch (Sql2oException e) {
 			logger.error("Failed to get avoid linkIds in ServerTest", e);
-		}	
+		} catch (Exception e) {
+			logger.error("Failed to create Coordinate", e);
+		}
 	}
 	
+	/**
+	 * Test getting getCrimes method within a specific range of coordinates from the
+	 * database.
+	 */
 	@Test
 	public void testGetCrimes() {
 		SurvivalService s = new SurvivalService(dSource);
@@ -188,10 +204,7 @@ public class ServerTest {
 					+ "type TEXT, PRIMARY KEY (date, linkId, type));";
 			conn.createQuery(sql1).executeUpdate();
 			
-			// Crime(int date, String address, String type, double latitude, double longitude, int linkid)
 			List<Crime> crimeList = new LinkedList<>();
-			List<Crime> valid = new LinkedList<>();
-			List<Crime> invalid = new LinkedList<>();
 			
 			// the only ones that should return
 			crimeList.add(new Crime(20, "a2", "type2", 200, 200, 1));
@@ -244,6 +257,9 @@ public class ServerTest {
 		}	
 	}
 		
+	/**
+	 * Tests getSafetyRating method in SurvivalService to make sure we get the right color rating.
+	 */
 	@Test
 	public void testSafetyRating()  {
 		SurvivalService s = new SurvivalService(dSource);
@@ -268,6 +284,11 @@ public class ServerTest {
 	// ------------------------------------------------------------------------//
 	// Survival Maps Specific Helper Methods and classes
 	// ------------------------------------------------------------------------//
+	
+	/**
+	 * Clears the database of all test tables.
+	 * @return
+	 */
 	private SQLiteDataSource clearDB() {
 		SQLiteDataSource dataSource = new SQLiteDataSource();
 		dataSource.setUrl("jdbc:sqlite:server.db"); 
