@@ -147,14 +147,12 @@ public class SurvivalService {
 			int x = grid.getX();
 			int y = grid.getY();
 			
-			String sql = "SELECT SUM(alarm) FROM :table WHERE "
+			String sql = "SELECT SUM(alarm) FROM " + table + " WHERE "
 					+ "x <= :x + 1 AND x >= :x - 1 AND y <= :y + 1 AND y >= :y - 1;";
 
 			Query query = conn.createQuery(sql);
 
-			query.addParameter("x", x)
-					.addParameter("y", y)
-					.addParameter("table", table);
+			query.addParameter("x", x).addParameter("y", y);
 
 			double result = query.executeScalar(Double.class);
 			

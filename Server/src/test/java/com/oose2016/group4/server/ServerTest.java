@@ -247,7 +247,6 @@ public class ServerTest {
 			List<Crime> crimes = s.getCrimes(from, to, timeOfDay, "TestCrimes");
 			
 			crimes.forEach(crime -> {
-				System.out.println(crime);
 				assertTrue(crime.getLat() >= fromLat && crime.getLat() <= toLat
 				&& crime.getLng() >= fromLng && crime.getLng() <= toLng
 				&& crime.getDate() >= fromDate && crime.getDate() <= toDate);
@@ -272,18 +271,19 @@ public class ServerTest {
 			conn.createQuery(sqltable).executeUpdate();
 			
 			List<Grid> grids = new LinkedList<>();
+			grids.add(new Grid(39.5, 76.5));
 			
 			// TODO create a bunch of grids in this grid list to add to the test table, figure out what needs to be asserted
 			
 			String sqlInsertCoordinate = "INSERT INTO TestSafetyRating "
-                    + " VALUES(:xParam, :yParam, :linkidParam, :alarmParam, :aadtParam); ";
+                    + "VALUES(:x, :y, :linkId, :alarm, :AADT);";
 			
-			grids.forEach(grid ->
-	            conn.createQuery(sqlInsertCoordinate).bind(grid).executeUpdate()
-			);
+			grids.forEach(grid -> {
+	            conn.createQuery(sqlInsertCoordinate).bind(grid).executeUpdate();
+			});
 			
 			try {
-				s.getSafetyRating(new Coordinate(39.5, 76.5), table);
+				assertEquals("green", s.getSafetyRating(new Coordinate(39.5, 76.5), table));
 				
 			} catch (Exception e) {
 				logger.error("Failed to get safety rating", e);
