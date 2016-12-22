@@ -123,9 +123,9 @@ public class SurvivalService {
 	 */
 	public void updateDB(String table) {
 		try (Connection conn = db.open()){
-			DatabaseUpdater DatabaseUpdater = new DatabaseUpdater(conn);
-			DatabaseUpdater.initialUpdate();
-			DatabaseUpdater.update(table);
+			DatabaseUpdater databaseUpdater = new DatabaseUpdater(conn);
+			databaseUpdater.initialUpdate();
+			databaseUpdater.update(table);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Sql2oException e) {
