@@ -20,7 +20,7 @@ public class TrafficAPIHandler extends RequestHandler {
     /**
      * Fetch data from the traffics source library to update to database.
      * @return an ArrayList that can be further processed by DatabaseUpdater's updateTraffic() method;
-     * @throws IOException
+     * @throws IOException throws IO Exception
      */
     protected static ArrayList<Object> preProcessTrafficData() throws IOException {
         String stringResponse = makeGetRequest(URL_TRAFFIC_SOURCE);

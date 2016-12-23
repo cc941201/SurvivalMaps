@@ -37,7 +37,7 @@ public class ServerTest {
 	/**
 	 * Clears the database of any test tables we may have created and initiates
 	 * testing.
-	 * @throws Exception
+	 * @throws Exception setup doesn't work
 	 */
 	@Before
 	public void setup() throws Exception {
@@ -76,7 +76,7 @@ public class ServerTest {
 	
 	/**
 	 * Tests the sortAndExpand method in AvoidLinkIds.
-	 * @throws Exception
+	 * @throws Exception sortAndExpand doesn't work
 	 */
 	@Test
 	public void testSortAndExpand() throws Exception {
@@ -119,7 +119,7 @@ public class ServerTest {
 
 	/**
 	 * Tests the getAvoidLnkIds method in AvoidLinkIds.
-	 * @throws Exception
+	 * @throws Exception getAvoidLinkIds doesn't work
 	 */
 	@Test
 	public void testGetAvoidLinkIds() throws Exception {
