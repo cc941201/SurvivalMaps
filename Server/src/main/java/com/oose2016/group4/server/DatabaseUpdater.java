@@ -11,6 +11,9 @@ import org.sql2o.Connection;
 
 import java.util.List;
 
+/**
+ * Class dedicated to updating the database tables
+ */
 public class DatabaseUpdater {
     /*
     Initial queries to create tables in the database if none table of the given name exists.
@@ -41,6 +44,10 @@ public class DatabaseUpdater {
 
     private Connection mConnection;
 
+    /**
+     * DatabaseUpdater constructor
+     * @param conn the database connection
+     */
     public DatabaseUpdater(Connection conn) {
         mConnection = conn;
     }
@@ -59,7 +66,7 @@ public class DatabaseUpdater {
      * Main task of the DatabaseUpdater class
      * @throws IOException
      */
-    public void update(String table) throws IOException {
+    public void update() throws IOException {
         /*
         Make sure that the three updating method are executed in exactly this order. We start with a database containing
         a 'crimes' table that holds historical crime data for about 4 years, preprocessed in advance because the crime

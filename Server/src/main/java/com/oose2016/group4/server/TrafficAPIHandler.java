@@ -11,6 +11,9 @@ import java.util.Map;
 import com.google.gson.Gson;
 
 
+/**
+ * Traffic API Handler
+ */
 public class TrafficAPIHandler extends RequestHandler {
     private static String URL_TRAFFIC_SOURCE="http://data.imap.maryland.gov/datasets/3f4b959826c34480be3e4740e4ee025f_1.geojson";
 

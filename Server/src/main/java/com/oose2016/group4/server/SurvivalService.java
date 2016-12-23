@@ -13,7 +13,7 @@ import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
 /**
- * Query the database
+ * Class which runs the survival service.
  */
 public class SurvivalService {
 	private Sql2o db;
@@ -74,7 +74,7 @@ public class SurvivalService {
 
 		List<Integer> avoidLindIds = queryGetAvoidLindIds
 				.addParameter("fromX", fromGrid.getX())
-				.addParameter("toX", toGrid.getX())
+				.addParameter("toX", toGrid.getX()
 				.addParameter("fromY", fromGrid.getY())
 				.addParameter("toY", toGrid.getY())
 				.executeAndFetch(Integer.class);
@@ -123,9 +123,9 @@ public class SurvivalService {
 	 */
 	public void updateDB(String table) {
 		try (Connection conn = db.open()){
-			DatabaseUpdater databaseUpdater = new DatabaseUpdater(conn);
-			databaseUpdater.initialUpdate();
-			databaseUpdater.update(table);
+			DatabaseUpdater DatabaseUpdater = new DatabaseUpdater(conn);
+			DatabaseUpdater.initialUpdate();
+			DatabaseUpdater.update();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Sql2oException e) {
@@ -137,24 +137,22 @@ public class SurvivalService {
 	 * Based on the sum of alarm values of the grid the input coordinate in and the eight grids surrounding it, determine
 	 * a safety rating of one of red/yellow/green to denote a safety level for the input coordinate.
 	 * @param lat latitude
-	 * @param lng longtitude
+	 * @param lng longitude
 	 * @param table name of the table in the database to use to fetch the data used for the rating algorithm
 	 * @return one of red/yellow/green to indicate the alarm/safety level of the given coordinate location
 	 */
-	public String getSafetyRating(double lat, double lng, String table) {
+	public String getSafetyRating(Coordinate c, String table) {
 		try (Connection conn = db.open()) {
-			Grid grid = new Grid(lat, lng);
+			Grid grid = new Grid(c.getLatitude(), c.getLongitude());
 			int x = grid.getX();
 			int y = grid.getY();
 			
-			String sql = "SELECT SUM(alarm) FROM :table WHERE "
+			String sql = "SELECT SUM(alarm) FROM " + table + " WHERE "
 					+ "x <= :x + 1 AND x >= :x - 1 AND y <= :y + 1 AND y >= :y - 1;";
 
 			Query query = conn.createQuery(sql);
 
-			query.addParameter("x", x)
-					.addParameter("y", y)
-					.addParameter("table", table);
+			query.addParameter("x", x).addParameter("y", y);
 
 			double result = query.executeScalar(Double.class);
 			

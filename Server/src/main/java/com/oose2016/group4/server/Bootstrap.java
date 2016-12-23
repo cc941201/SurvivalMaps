@@ -17,6 +17,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * The main function that runs all of the backend and stands up the server.
+ */
 public class Bootstrap {
 	private static final Logger logger = LoggerFactory.getLogger(Bootstrap.class);
 
@@ -41,6 +44,10 @@ public class Bootstrap {
 		new SurvivalController(new SurvivalService(dataSource));
 	}
 
+	/**
+	 * Return the port to use when setting up the server.
+	 * @return the port number
+	 */
 	public static int getPort() {
 		ProcessBuilder processBuilder = new ProcessBuilder();
 		String port = processBuilder.environment().get("PORT");

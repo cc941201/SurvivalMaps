@@ -9,6 +9,10 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
+/**
+ * Handles the http requests to the Crime Data API.
+ *
+ */
 public class CrimeAPIHandler extends RequestHandler {
 	private static String URL_CRIME_SOURCE = "https://data.baltimorecity.gov/resource/4ih5-d5d5.json";
 	

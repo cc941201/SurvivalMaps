@@ -1,8 +1,5 @@
 package com.oose2016.group4.server;
 
-
-import static org.mockito.Mockito.*;
-
 import org.sql2o.Connection;
 import org.sql2o.Query;
 import org.sql2o.Sql2o;
@@ -11,8 +8,6 @@ import org.sqlite.SQLiteDataSource;
 
 import spark.Spark;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -23,10 +18,7 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.*;
 
-import com.google.gson.Gson;
-
 import org.junit.runner.RunWith;
-import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -42,7 +34,11 @@ public class ServerTest {
 	// Setup - based on To-Do server unit tests.
 	// ------------------------------------------------------------------------//
 
-	
+	/**
+	 * Clears the database of any test tables we may have created and initiates
+	 * testing.
+	 * @throws Exception
+	 */
 	@Before
 	public void setup() throws Exception {
 		// Clear the database and then start the server
@@ -53,7 +49,9 @@ public class ServerTest {
 		Spark.awaitInitialization();
 	}
 	
-	
+	/**
+	 * Clears the database of testing tables and stops the tests
+	 */
 	@After
 	public void tearDown() {
 		// Stop the server
@@ -65,6 +63,10 @@ public class ServerTest {
 	// Tests
 	// ------------------------------------------------------------------------//
 
+	/**
+	 * Tests the getters in the Coordinate class.
+	 * @throws Exception when the coordinates are invalid
+	 */
 	@Test
 	public void testGetLatLong() throws Exception {
 		Coordinate c = new Coordinate(0.5, 0.7);
@@ -72,6 +74,10 @@ public class ServerTest {
 		assertEquals(0.7, c.getLongitude(), 0);
 	}
 	
+	/**
+	 * Tests the sortAndExpand method in AvoidLinkIds.
+	 * @throws Exception
+	 */
 	@Test
 	public void testSortAndExpand() throws Exception {
 		//c1 < c2
@@ -111,6 +117,10 @@ public class ServerTest {
 		assertEquals(1.11608, c8.getLongitude(), 0.01);
 	}
 
+	/**
+	 * Tests the getAvoidLnkIds method in AvoidLinkIds.
+	 * @throws Exception
+	 */
 	@Test
 	public void testGetAvoidLinkIds() throws Exception {
 		SurvivalService s = new SurvivalService(dSource);
@@ -174,9 +184,15 @@ public class ServerTest {
 			assertEquals(s.getAvoidLinkIds(from1, to1, TESTCRIMES), null);
 		} catch (Sql2oException e) {
 			logger.error("Failed to get avoid linkIds in ServerTest", e);
-		}	
+		} catch (Exception e) {
+			logger.error("Failed to create Coordinate", e);
+		}
 	}
 	
+	/**
+	 * Test getting getCrimes method within a specific range of coordinates from the
+	 * database.
+	 */
 	@Test
 	public void testGetCrimes() {
 		SurvivalService s = new SurvivalService(dSource);
@@ -188,10 +204,7 @@ public class ServerTest {
 					+ "type TEXT, PRIMARY KEY (date, linkId, type));";
 			conn.createQuery(sql1).executeUpdate();
 			
-			// Crime(int date, String address, String type, double latitude, double longitude, int linkid)
 			List<Crime> crimeList = new LinkedList<>();
-			List<Crime> valid = new LinkedList<>();
-			List<Crime> invalid = new LinkedList<>();
 			
 			// the only ones that should return
 			crimeList.add(new Crime(20, "a2", "type2", 200, 200, 1));
@@ -234,7 +247,6 @@ public class ServerTest {
 			List<Crime> crimes = s.getCrimes(from, to, timeOfDay, "TestCrimes");
 			
 			crimes.forEach(crime -> {
-				System.out.println(crime);
 				assertTrue(crime.getLat() >= fromLat && crime.getLat() <= toLat
 				&& crime.getLng() >= fromLng && crime.getLng() <= toLng
 				&& crime.getDate() >= fromDate && crime.getDate() <= toDate);
@@ -243,64 +255,14 @@ public class ServerTest {
 			logger.error("Failed to get crimes in ServerTest", e);
 		}	
 	}
-	
-	/*
-	@Test
-	public void testUpdateDB() {
-		SurvivalService s = new SurvivalService(dSource);
-		try (Connection conn = s.getDb().open()){
-			PowerMockito.mockStatic(MapQuestHandler.class);
-			PowerMockito.when(MapQuestHandler.requestLinkId(anyDouble(), anyDouble())).thenReturn(2);
-			assertEquals(MapQuestHandler.requestLinkId(3, 5.9), 2);
-
-			String json = "[{\":@computed_region_5kre_ccpb\":\"221\","
-				+ "\":@computed_region_s6p5_2pgr\":\"27301\""
-				+ ",\"crimecode\":\"6D\","
-				+ "\"crimedate\":\"2016-07-24T00:00:00.000\","
-				+ "\"crimetime\":\"18:00:00\","
-				+ "\"description\":\"LARCENY FROM AUTO\","
-				+ "\"district\":\"WESTERN\","
-				+ "\"inside_outside\":\"O\","
-				+ "\"location\":\"1000 MOSHER ST\","
-				+ "\"location_1\":"
-				+ "{\"type\":\"Point\","
-				+ "\"coordinates\":[-76.63514,39.30027]},"
-				+ "\"neighborhood\":\"Sandtown-Winchester\","
-				+ "\"post\":\"743\","
-				+ "\"total_incidents\":\"1\"}]";
-			
-			PowerMockito.mockStatic(CrimeAPIHandler.class);
-			PowerMockito.when(CrimeAPIHandler.preProccessCrimeData())
-				.thenReturn(new Gson().fromJson(json, ArrayList.class));
-			
-			String sqltable = "CREATE TABLE IF NOT EXISTS TestCrimes "
-		            + "(date INTEGER NOT NULL, linkId INTEGER NOT NULL, address TEXT NOT NULL, "
-		            + "latitude REAL NOT NULL, longitude REAL NOT NULL, "
-		            + "type TEXT, PRIMARY KEY (date, linkId, type, latitude, longitude));";
-			conn.createQuery(sqltable).executeUpdate();
-			
-			s.updateDB("TestCrimes");
-			
-			String selectSQL = "SELECT * FROM TestCrimes";
-			
-			Query query = conn.createQuery(selectSQL);
-			List<Crime> crimes = query.executeAndFetch(Crime.class);
-			
-			assertTrue(crimes.get(0).getAddress().equals("1000 MOSHER ST"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		//exceeded the number of monthly MapQuest transactions 11/27/16
-	} */
-	
+	/**
+	 * Tests getSafetyRating method in SurvivalService to make sure we get the right color rating.
+	 */
 	@Test
-	public void testSafetyRating() {
+	public void testSafetyRating()  {
 		SurvivalService s = new SurvivalService(dSource);
 		try (Connection conn = s.getDb().open()){
-			double lat = 39.5;
-			double lng = 76.5;
 			String table = "TestSafetyRating";
 			
 			String sqltable = "CREATE TABLE IF NOT EXISTS TestSafetyRating "
@@ -308,13 +270,54 @@ public class ServerTest {
 		            + " PRIMARY KEY (x, y));";
 			conn.createQuery(sqltable).executeUpdate();
 			
-			s.getSafetyRating(lat, lng, table);
+			List<Grid> grids = new LinkedList<>();
+			Grid g1 = new Grid(39.5, 76.5);
+			g1.setAlarm(9000);
+			grids.add(g1);
+			
+			for (int i = 0; i < 2; i++) {
+				Grid g2 = new Grid(29.5, 66.5);
+				g2.setX(179495 + i);
+				g2.setY(108573 + i);
+				g2.setAlarm(9000);
+				grids.add(g2);
+			}
+			
+			for (int i = 0; i < 3; i++) {
+				Grid g3 = new Grid(19.5, 56.5);
+				g3.setX(172213 + i);
+				g3.setY(116589 + i);
+				g3.setAlarm(9000);
+				grids.add(g3);
+			}
+						
+			String sqlInsertCoordinate = "INSERT INTO TestSafetyRating "
+                    + "VALUES(:x, :y, :linkId, :alarm, :AADT);";
+			
+			grids.forEach(grid -> {
+				System.out.println(" X: " + grid.getX() + " Y: " + grid.getY());
+	            conn.createQuery(sqlInsertCoordinate).bind(grid).executeUpdate();
+			});
+			
+			try {
+				assertEquals("green", s.getSafetyRating(new Coordinate(39.5, 76.5), table));
+				assertEquals("yellow", s.getSafetyRating(new Coordinate(29.5, 66.5), table));
+				assertEquals("red", s.getSafetyRating(new Coordinate(19.5, 56.5), table));
+				
+			} catch (Exception e) {
+				logger.error("Failed to get safety rating", e);
+			}
 		}
 	}
 	
 	// ------------------------------------------------------------------------//
 	// Survival Maps Specific Helper Methods and classes
 	// ------------------------------------------------------------------------//
+	
+	/**
+	 * Clears the database of all test tables.
+	 * @return the clean database source
+	 */
 	private SQLiteDataSource clearDB() {
 		SQLiteDataSource dataSource = new SQLiteDataSource();
 		dataSource.setUrl("jdbc:sqlite:server.db"); 
