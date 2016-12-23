@@ -271,7 +271,25 @@ public class ServerTest {
 			conn.createQuery(sqltable).executeUpdate();
 			
 			List<Grid> grids = new LinkedList<>();
-			grids.add(new Grid(39.5, 76.5));
+			Grid g1 = new Grid(39.5, 76.5);
+			g1.setAlarm(9000);
+			grids.add(g1);
+			
+			for (int i = 0; i < 2; i++) {
+				Grid g2 = new Grid(29.5, 66.5);
+				g2.setX(179495 + i);
+				g2.setY(108573 + i);
+				g2.setAlarm(9000);
+				grids.add(g2);
+			}
+			
+			for (int i = 0; i < 3; i++) {
+				Grid g3 = new Grid(19.5, 56.5);
+				g3.setX(172213 + i);
+				g3.setY(116589 + i);
+				g3.setAlarm(9000);
+				grids.add(g3);
+			}
 			
 			// TODO create a bunch of grids in this grid list to add to the test table, figure out what needs to be asserted
 			
@@ -279,11 +297,14 @@ public class ServerTest {
                     + "VALUES(:x, :y, :linkId, :alarm, :AADT);";
 			
 			grids.forEach(grid -> {
+				System.out.println(" X: " + grid.getX() + " Y: " + grid.getY());
 	            conn.createQuery(sqlInsertCoordinate).bind(grid).executeUpdate();
 			});
 			
 			try {
 				assertEquals("green", s.getSafetyRating(new Coordinate(39.5, 76.5), table));
+				assertEquals("yellow", s.getSafetyRating(new Coordinate(29.5, 66.5), table));
+				assertEquals("red", s.getSafetyRating(new Coordinate(19.5, 56.5), table));
 				
 			} catch (Exception e) {
 				logger.error("Failed to get safety rating", e);
