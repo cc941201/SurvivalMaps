@@ -33,6 +33,7 @@ public class SurvivalService {
 	 * Get linkIds to avoid
 	 * @param from top left coordinate
 	 * @param to bottom right coordinate
+	 * @param table table in database
 	 * @return linkIds
 	 */
 	public AvoidLinkIds getAvoidLinkIds(Coordinate from, Coordinate to, String table) {
@@ -74,7 +75,7 @@ public class SurvivalService {
 
 		List<Integer> avoidLindIds = queryGetAvoidLindIds
 				.addParameter("fromX", fromGrid.getX())
-				.addParameter("toX", toGrid.getX()
+				.addParameter("toX", toGrid.getX())
 				.addParameter("fromY", fromGrid.getY())
 				.addParameter("toY", toGrid.getY())
 				.executeAndFetch(Integer.class);
@@ -92,6 +93,7 @@ public class SurvivalService {
 	 * @param from starting crime point
 	 * @param to ending crime point
 	 * @param timeOfDay the time of day
+	 * @param table table in database
 	 * @return the results of our query to the database
 	 */
 	public List<Crime> getCrimes(Crime from, Crime to, int timeOfDay, String table) {
@@ -120,6 +122,7 @@ public class SurvivalService {
 	 * Creates or updates the server.db database that holds all of the crime data.
 	 * Only includes data that has all of the fields we need and doesn't have a matching
 	 * compound primary key in the existing data: (date, linkId, type).
+	 * @param table table in database
 	 */
 	public void updateDB(String table) {
 		try (Connection conn = db.open()){
@@ -136,8 +139,7 @@ public class SurvivalService {
 	/**
 	 * Based on the sum of alarm values of the grid the input coordinate in and the eight grids surrounding it, determine
 	 * a safety rating of one of red/yellow/green to denote a safety level for the input coordinate.
-	 * @param lat latitude
-	 * @param lng longitude
+	 * @param c Coordinate
 	 * @param table name of the table in the database to use to fetch the data used for the rating algorithm
 	 * @return one of red/yellow/green to indicate the alarm/safety level of the given coordinate location
 	 */

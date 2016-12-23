@@ -25,8 +25,8 @@ public class Grid {
      * The major purpose of this class: mapping actually geographical coordinates
      * to integer-formatted grid coordinates, or conceptually, putting coordinates into
      * grids on the map.
-     * @param lat
-     * @param lng
+     * @param lat latitude of coordinate
+     * @param lng longitude of coordinate
      */
     public Grid (double lat, double lng) {
         double latitudeDegree = lat * Math.PI / 180;

@@ -76,7 +76,7 @@ public class ServerTest {
 	
 	/**
 	 * Tests the sortAndExpand method in AvoidLinkIds.
-	 * @throws Exception sortAndExpand doesn't work.
+	 * @throws Exception sortAndExpand doesn't work
 	 */
 	@Test
 	public void testSortAndExpand() throws Exception {
@@ -119,7 +119,7 @@ public class ServerTest {
 
 	/**
 	 * Tests the getAvoidLnkIds method in AvoidLinkIds.
-	 * @throws Exception GetAvoidLinkIds not working.
+	 * @throws Exception getAvoidLinkIds doesn't work
 	 */
 	@Test
 	public void testGetAvoidLinkIds() throws Exception {

@@ -64,7 +64,7 @@ public class DatabaseUpdater {
 
     /**
      * Main task of the DatabaseUpdater class
-     * @throws IOException
+     * @throws IOException throws IO Exception
      */
     public void update() throws IOException {
         /*

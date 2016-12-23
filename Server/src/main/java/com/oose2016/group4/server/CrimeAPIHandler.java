@@ -19,7 +19,7 @@ public class CrimeAPIHandler extends RequestHandler {
 	/**
      * Fetch raw crime data from data.baltimorecity.gov and transform the result into proper form to store.
      * @return the crime data in an ArrayList
-     * @throws IOException
+     * @throws IOException throws IO Exception
      */
     protected static ArrayList<Object> preProccessCrimeData() throws IOException {
         String stringResult = makeGetRequest(URL_CRIME_SOURCE);
