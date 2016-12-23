@@ -9,6 +9,10 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
+/**
+ * Makes calls to MapQuest API to get linkid of crime coordinates
+ *
+ */
 public class MapQuestHandler extends RequestHandler {
 	//The developer key needed to use MapQuest functionality
 	private static String MAPQUEST_KEY = "afbtgu28aAJW4kgGbc8yarMCZ3LdWWbh";

@@ -22,6 +22,10 @@ import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+/**
+ * Class for testing.
+ *
+ */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({MapQuestHandler.class, CrimeAPIHandler.class})
 public class ServerTest {

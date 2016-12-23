@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Superclass for MapQuestHandler and TrafficAPIHandler.
+ * Makes GET requests.
+ *
+ */
 public abstract class RequestHandler {
 	
 	/**

@@ -11,6 +11,9 @@ import spark.ResponseTransformer;
 
 import java.util.HashMap;
 
+/**
+ * Turns object to Json.
+ */
 public class JsonTransformer implements ResponseTransformer {
 	private Gson gson = new Gson();
 
