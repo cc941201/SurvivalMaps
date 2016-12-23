@@ -74,7 +74,7 @@ public class SurvivalService {
 
 		List<Integer> avoidLindIds = queryGetAvoidLindIds
 				.addParameter("fromX", fromGrid.getX())
-				.addParameter("toX", toGrid.getX())
+				.addParameter("toX", toGrid.getX()
 				.addParameter("fromY", fromGrid.getY())
 				.addParameter("toY", toGrid.getY())
 				.executeAndFetch(Integer.class);

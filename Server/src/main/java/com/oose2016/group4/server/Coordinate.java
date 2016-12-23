@@ -42,7 +42,7 @@ public class Coordinate {
 
 	/**
 	 * Sort coordinates and expand a bit so that after the processing, we can always assume that
-	 * a.latitude<b.latitude, a.longitude<b.longitude
+	 * latitude of a< latitude of b, longitude of a < longitude of b
 	 * @param a set to top left coordinate
 	 * @param b set to bottom right coordinate
 	 */
