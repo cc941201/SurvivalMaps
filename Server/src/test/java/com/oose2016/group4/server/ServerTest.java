@@ -290,9 +290,7 @@ public class ServerTest {
 				g3.setAlarm(9000);
 				grids.add(g3);
 			}
-			
-			// TODO create a bunch of grids in this grid list to add to the test table, figure out what needs to be asserted
-			
+						
 			String sqlInsertCoordinate = "INSERT INTO TestSafetyRating "
                     + "VALUES(:x, :y, :linkId, :alarm, :AADT);";
 			
