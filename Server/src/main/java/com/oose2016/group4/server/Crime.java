@@ -2,6 +2,10 @@ package com.oose2016.group4.server;
 
 import java.util.Date;
 
+/**
+ * Crime object. Contains date, linkid, address, 
+ * type, latitude, and longitude of crime.
+ */
 public class Crime {
 	private int date, linkid;
 	private String address, type;

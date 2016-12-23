@@ -79,6 +79,7 @@ public class SurvivalService {
 				.addParameter("fromY", fromGrid.getY())
 				.addParameter("toY", toGrid.getY())
 				.executeAndFetch(Integer.class);
+		
 		int size = avoidLindIds.size();
 		int[] linkIds = new int[size];
 		for (int i = 0; i<size; i++ ) {

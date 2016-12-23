@@ -22,6 +22,10 @@ import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+/**
+ * Class for testing.
+ *
+ */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({MapQuestHandler.class, CrimeAPIHandler.class})
 public class ServerTest {
@@ -37,7 +41,7 @@ public class ServerTest {
 	/**
 	 * Clears the database of any test tables we may have created and initiates
 	 * testing.
-	 * @throws Exception setup doesn't work
+	 * @throws Exception Setup doesn't work.
 	 */
 	@Before
 	public void setup() throws Exception {
